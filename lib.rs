@@ -22,7 +22,6 @@ mod tutor_contract {
     //const SMLY3: Balance = 100000000;
     const SMLY3: Balance = 1;
     type FixedPoint = i64;
-    const FP_NOM: f64 = 1000000.0;
 
     #[ink(storage)]
     pub struct TutorContract {
@@ -53,8 +52,8 @@ mod tutor_contract {
         pub fn new(question: Vec<String>, answers: Vec<u8>) -> Result<Self, Error> {
             let question_clone = question.clone();
             let answers_clone = answers.clone();
-            let weights = Vec::from([Self::to_fp(2.0), Self::to_fp(1.5), Self::to_fp(0.90), Self::to_fp(0.4), Self::to_fp(0.2)]);
-            let points = VecDeque::from([Self::to_fp(1.0); 5]);
+            let weights = Vec::from([2_000000, 1_500000, 0_900000, 0_400000, 0_200000]);
+            let points = VecDeque::from([1_000000; 5]);
             let grade = Self::dot_product(weights.clone(), points.clone().into());
             Ok(Self {
                 questions: question_clone,
@@ -66,16 +65,8 @@ mod tutor_contract {
             })
         }
 
-        fn to_fp(x: f64) -> FixedPoint {
-            return (x*FP_NOM) as FixedPoint;
-        }
-
-        fn from_fp(x: FixedPoint) -> f64 {
-            return x as f64/FP_NOM;
-        }
-
         fn fp_mul(x: FixedPoint, y: FixedPoint) -> FixedPoint {
-            return Self::to_fp((Self::from_fp(x)) * Self::from_fp(y));
+            return x * y / 1_000000
         }
 
 
@@ -128,7 +119,7 @@ mod tutor_contract {
             }
 
             if answer != self.answers[usize::from(self.progress)] {
-                self.points.push_front(Self::to_fp(-2.0));
+                self.points.push_front(-2_000000);
                 self.points.pop_back();
                 self.env().emit_event(Answered{correct: false});
                 return Err(Error::FalseAnswer);
@@ -137,7 +128,7 @@ mod tutor_contract {
 
             self.progress += 1;
 
-            self.points.push_front(Self::to_fp(2.0));
+            self.points.push_front(2_000000);
             self.points.pop_back();
             self.env().emit_event(Answered{correct: true});
             
@@ -147,7 +138,7 @@ mod tutor_contract {
 
             self.grade = self.calculate_grade();
 
-            if Self::from_fp(self.grade) >= 9.75 {
+            if self.grade >= 9_750000 {
                 match self.env().transfer(caller, 500*SMLY3) {
                     Err(_) => return Err(Error::InternalError),
                     Ok(_) => (),
@@ -181,7 +172,7 @@ mod tutor_contract {
             let answers = Vec::from([0,1]);
             let mut contract = TutorContract::new(questions, answers).unwrap();
 
-            while contract.grade < TutorContract::to_fp(9.75) {
+            while contract.grade < 9_750000 {
                 println!("{}", contract.grade);
                 assert_eq!(contract.get_current_question(), "question 0: 0".to_string());
                 assert_eq!(Ok(()), ink::env::pay_with_call!(contract.answer(0), 100*SMLY3));
