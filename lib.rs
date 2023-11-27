@@ -16,7 +16,6 @@ mod tutor_contract {
         prelude::string::String,
         prelude::vec::Vec,
         prelude::collections::VecDeque,
-        env::hash,
     };
 
     //const SMLY3: Balance = 100000000;
