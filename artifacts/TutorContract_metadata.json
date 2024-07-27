@@ -89,11 +89,11 @@
 	},
 	"sources": {
 		"tutor.sol": {
-			"keccak256": "0xefe4e61b644563a5387c84f797a2b7bc491710f79d70996232fdcfb3284c3e02",
+			"keccak256": "0x9907ad028e5a87c87d2e467ac720d0c749704eddb39eeb7e1bc2c97a75eff5aa",
 			"license": "GPL3.0",
 			"urls": [
-				"bzz-raw://b554bc3c1e2faa27c4c29ae6dab4c1e1f942ce083ebb9bbfaf88fd52eb044621",
-				"dweb:/ipfs/QmXRCkLPf6XSGc4CLM6H9ti3TEocZumx5cR99SFbt2r592"
+				"bzz-raw://f0f5e853aaf1d722f941423f714d4d2c4e6c3f4fcedda1435f2cf5fe3fc9b960",
+				"dweb:/ipfs/QmSWYi2PmGwCJ7TcCmwQHBeXBirNtwmPeFvjZTteVeD6RY"
 			]
 		}
 	},

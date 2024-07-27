@@ -27,7 +27,7 @@ contract TutorContract {
   constructor(string[] memory q, uint8[] memory a) {
       questions = q;
       answers = a;
-      weights = [fxp.wrap(2000000), fxp.wrap(1500000), fxp.wrap(900000), fxp.wrap(200000)];
+      weights = [fxp.wrap(2000000), fxp.wrap(1500000), fxp.wrap(900000), fxp.wrap(400000), fxp.wrap(200000)];
       points = [fxp.wrap(1000000), fxp.wrap(1000000), fxp.wrap(1000000), fxp.wrap(1000000), fxp.wrap(1000000)];
       progress = 0;
       grade = fxp.wrap(0);
