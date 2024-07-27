@@ -1,0 +1,101 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string[]",
+						"name": "q",
+						"type": "string[]"
+					},
+					{
+						"internalType": "uint8[]",
+						"name": "a",
+						"type": "uint8[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "correct",
+						"type": "bool"
+					}
+				],
+				"name": "Answered",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "calculate_grade",
+				"outputs": [
+					{
+						"internalType": "TutorContract.fxp",
+						"name": "",
+						"type": "int64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "get_current_question",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tutor.sol": "TutorContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tutor.sol": {
+			"keccak256": "0xefe4e61b644563a5387c84f797a2b7bc491710f79d70996232fdcfb3284c3e02",
+			"license": "GPL3.0",
+			"urls": [
+				"bzz-raw://b554bc3c1e2faa27c4c29ae6dab4c1e1f942ce083ebb9bbfaf88fd52eb044621",
+				"dweb:/ipfs/QmXRCkLPf6XSGc4CLM6H9ti3TEocZumx5cR99SFbt2r592"
+			]
+		}
+	},
+	"version": 1
+}
