@@ -46,6 +46,17 @@ contract TutorContract {
       return fxp.wrap(product);
   }
 
+  function push_front(fxp[] memory xs, fxp x) private pure returns (fxp[] memory) {
+    fxp[] memory ys = new fxp[](xs.length + 1);
+
+    for (uint256 i = 0; i < xs.length; i++) {
+        ys[i+1] = xs[i]; 
+    }
+    ys[0] = x;
+
+    return ys;
+  }
+
   function calculate_grade() public view returns (fxp) {
       return dot_product(weights, points);
   }
@@ -54,19 +65,30 @@ contract TutorContract {
       return questions[progress];
   }
 
-  /*
-  function answer(uint8 a) {
+  
+  function answer(uint8 a, address payable to) public  {
       if (a != answers[progress]) {
-	  points.push(-2000000);
-	  points.pop();
-	  event(Answered false)
+	    points = push_front(points, fxp.wrap(-2000000));
+	    points.pop();
+	    emit Answered(false);
       }
 
       // else if it was correct
       progress++;
-      points.push_front(2000000);
-      po
+      points = push_front(points, fxp.wrap(2000000));
+      points.pop();
 
-  */
+      if (progress > questions.length) {
+        progress = 0;
+      }
+
+      grade = calculate_grade();
+
+      if (fxp.unwrap(grade) > 975000) {
+        (bool sent, bytes memory data) = to.call{value: 500}("");
+        require(sent, "Failed to send Ether");
+      }
+    }
+  
 }
 

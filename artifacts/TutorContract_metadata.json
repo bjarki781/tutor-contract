@@ -35,6 +35,24 @@
 				"type": "event"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "a",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address payable",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "answer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "calculate_grade",
 				"outputs": [
@@ -89,11 +107,11 @@
 	},
 	"sources": {
 		"tutor.sol": {
-			"keccak256": "0x9907ad028e5a87c87d2e467ac720d0c749704eddb39eeb7e1bc2c97a75eff5aa",
+			"keccak256": "0x9b4e6e35ecef764494c42f11bb2c83314d91f573cfa504750d6f7bc9ed5097f4",
 			"license": "GPL3.0",
 			"urls": [
-				"bzz-raw://f0f5e853aaf1d722f941423f714d4d2c4e6c3f4fcedda1435f2cf5fe3fc9b960",
-				"dweb:/ipfs/QmSWYi2PmGwCJ7TcCmwQHBeXBirNtwmPeFvjZTteVeD6RY"
+				"bzz-raw://07983ee21a11a2265f531348ad203f760b82ef95ecade44b4b2910889bc0fcd3",
+				"dweb:/ipfs/QmeV2hEEqM2rgHpjzkXzcZ6ToEf8HNVyq9HpfyJ8MBFSJe"
 			]
 		}
 	},
